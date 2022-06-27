@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 13:34:00 by psydenst          #+#    #+#             */
-/*   Updated: 2022/06/24 16:12:24 by psydenst         ###   ########.fr       */
+/*   Created: 2022/06/27 18:57:22 by psydenst          #+#    #+#             */
+/*   Updated: 2022/06/27 19:20:27 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libftprintf.h"
 
-int	ft_putchar(char c, int fd)
+int	ft_putstr(char *s)
 {
-	write(fd, &c, 1);
-	return (0);
+	int i;
+	i = 0;
+	if(s == NULL)
+    {
+        write(1, "(null)", 6);
+    }
+    while(s[i] != '\0')
+	{
+		write(1, &s[i++], 1);
+	}
+    return(i);
 }

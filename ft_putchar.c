@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 15:04:14 by psydenst          #+#    #+#             */
-/*   Updated: 2022/06/27 16:12:08 by psydenst         ###   ########.fr       */
+/*   Created: 2022/05/20 13:34:00 by psydenst          #+#    #+#             */
+/*   Updated: 2022/06/27 16:11:59 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft/libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-int	ft_putchar(char c);
-int	ft_putnbr(int nbr);
-int	ft_putstr(char *str);
-int	putnbr_u(unsigned int nbr);
-int	put_pointer(void *nbr, char *base);
-int	put_hex(unsigned int nbr, char *base);
-int	ft_printf(const char	*format, ...);
-
-#endif
+int	ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (0);
+}

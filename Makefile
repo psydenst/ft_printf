@@ -1,37 +1,42 @@
 SRCS  = ft_printf.c \
+		ft_printf_utils.c \
+		ft_strchr.c \
+		ft_putchar.c \
 # where ft_printf.c and ft_printf_utils.c are
 
 NAME = libftprintf.a
 
 LIBFT_DIR = ./libft
 
-LIBFT = ${LIBFT_DIR}/libft.a
+LIBFT = ./libft/libft.a
 
 OBJS = ${SRCS:.c=.o}
 
 CC = cc
 
-AR = ar -qs
+AR = ar -rcs
 
 CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
 
-all: ${NAME} 
+all: $(NAME) 
 
 $(NAME): ${OBJS}
 	make -C ${LIBFT_DIR} && cp libft.a && mv libft.a ${NAME}
 	${AR} ${NAME} ${OBJS}
 
-.c.o: 
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+%.o: ${SRC}/%.C
+	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
+	make clean -C ${LIBFT_DIR}
 	${RM} ${OBJS}
 
 fclean: clean
-	${RM} ${NAME}
+		make fclean -C ./libft
+		${RM} ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fcelan re
+.PHONY: all clean fclean re
