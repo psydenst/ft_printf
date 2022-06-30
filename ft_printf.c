@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:57:38 by psydenst          #+#    #+#             */
-/*   Updated: 2022/06/29 19:55:45 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:24:29 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,42 +41,48 @@ int	ft_printf(const char *format, ...)
 
 int	ft_print_arg(const char *format, int i, va_list ap)
 {
-	if (format[i + 1] == '%' && format[i] == '%')
+	if (format[i + 1] == '%')
 		return (ft_putchar(format[i + 1]));
-	if (format[i + 1] == 'c')
+	else if (format[i + 1] == 'c')
 		return (ft_putchar(va_arg(ap, int)));
-	if (format[i + 1] == 's')
+	else if (format[i + 1] == 's')
 		return (ft_putstr(va_arg(ap, char *)));
-	if (format[i + 1] == 'p')
+	else if (format[i + 1] == 'p')
 		return (ft_print_ptr(va_arg(ap, void *), format[i + 1]));
-	if (format[i + 1] == 'd')
+	else if (format[i + 1] == 'd')
 		return (ft_putnbr(va_arg(ap, int)));
-	if (format[i + 1] == 'i')
+	else if (format[i + 1] == 'i')
 		return (ft_putnbr(va_arg(ap, int)));
-	if (format[i + 1] == 'u')
+	else if (format[i + 1] == 'u')
 		return (ft_put_unsig_nbr(va_arg(ap, unsigned int)));
-	if (format[i + 1] == 'X')
+	else if (format[i + 1] == 'X')
 		return (ft_print_hexa(va_arg(ap, unsigned int), format[i + 1]));
-	if (format[i + 1] == 'x')
+	else if (format[i + 1] == 'x')
 		return (ft_print_hexa(va_arg(ap, unsigned int), format[i + 1]));
-	return (0);
+	else
+		return (0);
 }
 
-int main()
-{
-/* Test %u
-	printf("Retorno original: %i\n", printf("%u", -23456));	
-	printf("Retorno Pedrin: %i\n", ft_printf("%u", -23456)); 
-*/
-/* Test %% 
-	printf("Retorno da fr_printf: %i", ft_printf("Pedrin: %%")); 
-*/
-/* Teste %x e %X
-	printf("Retorno: %i\n\n", printf("%x\n", '9'));
-	printf("Retorno: %i\n\n", ft_printf("%x\n", '9'));
-*/
-/* %p test */
-// char s[] = "Teste";
-	printf("Original: %p\n", 10);
-	ft_printf("Pedrin: %p\n", 10);
-}
+// int main()
+// {
+// // // Test %c
+// // 	printf("Original: %c %c %c ", '0', 0, '1');
+// 	ft_printf("Peu: %c %c %c ", '1', '2', '3');
+
+// // /*
+// // // Test %u
+// // 	printf("Retorno original: %i\n", printf("%u", -23456));	
+// // 	printf("Retorno Pedrin: %i\n", ft_printf("%u", -23456)); 
+
+// // // Test %% 
+// // 	printf("Retorno da fr_printf: %i", ft_printf("Pedrin: %%")); 
+
+// // // Teste %x e %X
+// // 	printf("Retorno: %i\n\n", printf("%x\n", '9'));
+// // 	printf("Retorno: %i\n\n", ft_printf("%x\n", '9'));
+
+// // // %p test
+// //  char s[] = "Teste";
+// // 	 printf("%i\n", printf("Original: %p\n", 0));
+// // 	 printf("%i\n", ft_printf("Original: %p\n", 0));
+// }

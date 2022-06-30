@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:59:38 by psydenst          #+#    #+#             */
-/*   Updated: 2022/06/29 19:52:27 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/06/30 14:46:51 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,11 @@ int	ft_print_ptr(void *nbr, const char format)
 {
 	ft_putstr("0x");
 	if (nbr == 0)
-		return (write(1, "0", 1));
+	{
+		write(1, "0", 1);
+		return (3);
+	}
 	else
 		ft_put_ptr((unsigned long)nbr, format);
-	return (ft_len_ptr((unsigned long)nbr + 2));
+	return (ft_len_ptr((unsigned long)nbr) + 2);
 }
