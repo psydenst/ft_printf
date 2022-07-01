@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_print_hexa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psydenst <psydenst@student.42.rio>         +#+  +:+       +#+        */
+/*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:47:23 by psydenst          #+#    #+#             */
-/*   Updated: 2022/06/29 16:55:00 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:34:08 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_hexa_len(int nbr)
+int	ft_hexa_len(unsigned int nbr)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ void	ft_put_hexa(unsigned int nbr, const char format)
 		ft_put_hexa(nbr % 16, format);
 	}
 	else
-		if (nbr < 10)
+		if (nbr <= 9)
 			ft_putchar(nbr + '0');
 	else
 	{
