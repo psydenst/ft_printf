@@ -6,12 +6,11 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:57:38 by psydenst          #+#    #+#             */
-/*   Updated: 2022/07/01 17:20:19 by psydenst         ###   ########.fr       */
+/*   Updated: 2022/07/04 20:32:56 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h> // APAGAR ESSA MERDA
 
 int	ft_print_arg(const char *format, int i, va_list ap);
 
